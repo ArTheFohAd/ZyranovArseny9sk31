@@ -1,39 +1,25 @@
-temperature = float(input("Введите температуру: "))
-is_rainy = input("Есть осадки? (y/n): ")
-if is_rainy == "y":
-    rain = True
-else:
-    rain = False
-if rain:
-    is_raining_heavily = input("Осадки сильные? (y/n): ")
-    if is_raining_heavily == "y":
-        heavy_rain = True
-    else:
-        heavy_rain = False
-else:
-    heavy_rain = False
-if temperature <= 0:
-    print("Пуховик")
-else:
-    if temperature <= 20:
-        if is_rainy:
-            if is_raining_heavily:
-                print("Пальто, резиновые сапоги и зонт")
-            else:
-                print("Пальто и дождевик")
+def что_надеть():
+    тепло = input("Температура выше 20 и меньше 30? (да/нет): ").strip().lower()
+
+    if тепло == "да":
+        осадки = input("Есть ли осадки? (да/нет): ").strip().lower()
+        if осадки == "да":
+            print("Рекомендуем надеть: Футболку, шорты и дождевик")
         else:
-            print("Пальто")
+            print("Рекомендуем надеть: Футболку и шорты")
     else:
-        if temperature < 30:
-            if is_rainy:
-                print("Футболку, шорты и дождевик")
-            else:
-                print("Футболку и шорты")
+        выше_нуля = input("Температура выше 0 градусов? (да/нет): ").strip().lower()
+        if выше_нуля == "нет":
+            print("Рекомендуем надеть: Пуховик")
         else:
-            if is_rainy:
-                if is_raining_heavily:
-                    print("Пальто, резиновые сапоги и зонт")
+            осадки = input("Есть ли осадки? (да/нет): ").strip().lower()
+            if осадки == "нет":
+                print("Рекомендуем надеть: Пальто")
+            else:
+                сильные = input("Осадки сильные? (да/нет): ").strip().lower()
+                if сильные == "да":
+                    print("Рекомендуем надеть: Пальто, резиновые сапоги и зонт")
                 else:
-                    print("Футболку, шорты и дождевик")
-            else:
-                print("Футболку и шорты")
+                    print("Рекомендуем надеть: Пальто и дождевик")
+
+что_надеть()
